@@ -1,0 +1,51 @@
+
+
+.borde-fino {
+    margin: 15px;
+    padding: 10px 19px 14px;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.texto-justificado {
+    text-align: justify;
+}
+
+.ul-striped {
+    margin:0;  
+    padding:0; 
+    list-style-type: none; 
+}
+
+.ul-striped li {
+    padding: 8px;
+    text-transform: capitalize;
+}
+
+.ul-striped li a,
+.ul-striped li a:link,
+.ul-striped li a:hover sual {
+    text-decoration: none;
+}
+
+.ul-striped li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.ul-striped li:hover {
+    background-color: silver;
+}
+
+
+
+
+
+
+
+
+
+
+
+

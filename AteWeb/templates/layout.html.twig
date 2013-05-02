@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{% block title '' %} -AteWeb</title>
+        <meta name="description" content="Recopilación de material de uso cotidiano para la confección de atestados e informes previos">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap.min.css">
+        <style>
+            body {
+                    padding-top: 60px;
+                    padding-bottom: 40px;
+                }
+        </style>
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="{{ app.request.basepath }}/css/mainstyle.css">
+        
+        <script src="{{ app.request.basepath }}/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ app.request.basepath }}/js/jquery-1.9.1.min.js"><\/script>')</script>    
+    </head>  
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">Tu navegador está<strong>desfasado</strong>. Actualízalo <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">o usa Google Chrome Frame</a> para mejorar tu experiencia.</p>
+        <![endif]-->
+
+        <div class="header-container">
+        {% block menubar %}{% include '_menubar.html.twig' %}{% endblock %}  
+        </div>  
+    
+        <div class="container">
+            <div class="main wrapper clearfix">
+                {% block content %}Ooops! creo que tenemos un problema...{% endblock %}
+                {% block aside %}{% endblock %}
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+   
+        <div class="footer-container">
+            
+            <footer class="wrapper">
+                {% block footer %}{% include '_footer.html.twig' %}{% endblock %}
+            </footer>
+        </div>
+
+        
+        <script src="{{ app.request.basepath }}/js/bootstrap.min.js"></script>
+        
+        <script src="{{ app.request.basepath }}/js/plugins.js"></script>
+        <script src="{{ app.request.basepath }}/js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>
