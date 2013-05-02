@@ -1,0 +1,79 @@
+{% extends "layout.html.twig" %}
+{% block title %} Croquis {% endblock %}
+
+{% block content %}
+    
+    <legend>Bienvenido al archivo de croquis.</legend>
+
+    <p>Tenemos las siguientes calles en el almacén, si necesitas filtrar el texto para encontrar una puedes hacerlo más abajo </p>
+    <form class="form-search well">
+        <div class="input-prepend">
+            <span class="add-on"><i class="icon-search"></i></span>
+            <input id="busca-calles" type="text" class="input-medium search-query" placeholder="Escribe para filtrar">
+        </div>
+    </form>
+    
+    
+    
+    
+    
+    
+    
+    <table class="table table-striped">
+        <thead>
+        <th>Cruces y Puntos almacenados </th>
+        <tr><td>
+            <ul id="lista-calles" class="ul-striped">{% include 'croquis/croquis.data.html' %}</ul>
+        </td></tr>
+        </table>
+    <script type="text/javascript">        
+        
+         $('#busca-calles').focusin (function(){$(this).addClass('input-xlarge');});
+         $('#busca-calles').focusout(function(){$(this).removeClass('input-xlarge');});
+             
+            
+    function filterList(entrada, lista) {
+        $(entrada).change( function () {
+            var filter = $(this).val();
+            if(filter) {
+                $matches = $(lista).find('a:Contains(' + filter + ')').parent();
+                $('li', lista).not($matches).slideUp('500');
+                $matches.slideDown();
+            } else {
+                $(lista).find("li").slideDown();
+            }
+            return false;
+        }).keyup( function () {
+            $(this).change();
+        });
+    }
+             
+    $(function () {
+        filterList($("#busca-calles"), $("#lista-calles"));
+    });
+
+
+    // Con estas 3 líneas sobreescribimos el Constains para que no sea case sensitive pues por default en jquery  viene con case sensitive. Si no lo pones, queda como Case sensitive
+ /*   $.expr[':'].Contains = function(x, y, z){
+        return jQuery(x).text().toLowerCase().indexOf(z[3].toLowerCase())>=0;
+    };
+*/
+/*
+ jQuery.expr[":"].Contains = jQuery.expr.createPseudo(function (arg) {
+   return function (elem) {
+      return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) <= 0;
+   };
+});
+*/
+
+   
+         
+        
+         
+         
+    </script>
+{% endblock %}
+
+  
+    
+ 

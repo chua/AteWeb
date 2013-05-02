@@ -1,0 +1,79 @@
+{% extends "layout.html.twig" %}
+{% block title %} Ver Calle {% endblock %}
+
+{% block content %}
+    <div id="selector_bloque"></div>
+    <legend>({{cod}}) {{nom}} </legend>   
+    {# mostramos anclajes rapidos #}
+   
+    <ul class="pager">
+        <li><a href="{{path('croquis')}}">Atras</a></li>
+        {% for i in 1..cnt %}
+            <li class=""><a href="#bloque-croquis-{{i}}">Bloque {{ i }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <br/>
+        
+    {# Bucle que recorre los ficheros (las rutas son relativas) #}
+
+    {% for i in 1..cnt %}
+        <div id="bloque-croquis-{{i}}" class="borde-fino">
+            {#Imagen del Croquis#}
+            <p>
+            {% if jpg[i] or cdr[i] %}    
+                <p id="div-show-img-{{i}}">
+                <legend>Croquis del lugar <span class="pull-right">{{aut[i]}}</span></legend>
+                {% if jpg[i] %}
+                    <a class ="thumbnail"><img alt="" src="{{jpg[i]}}"/></a>
+                {% else %}
+                    <div class="alert"> <strong>Oh vaya!</strong> No hay imagen que mostrar</div>
+                {% endif %}
+                </p> 
+                {% if jpg[i] %}<a class="btn btn-success" href="{{jpg[i]}}">Descarga del imagen JPG</a> &nbsp; {% endif %} &nbsp;
+                {% if cdr[i] %}<a class="btn btn-success" href="{{cdr[i]}}">Descarga del archívo Corel</a>{% endif %}
+                <div class="borde-fino">Autor: {{aut[i]}}<br/>{{not[i]}}</div>
+            {% endif %}
+            </p><br/>  
+            {#Caracteristicas de las vías#}
+            {% if cvi[i] %}
+                <legend>Características de las vías</legend>
+                <p class="texto-justificado"> {{cvi[i]}} </p>
+            {% endif %}
+            <br/>
+
+            {#Señalización#}
+            {% if svh[i] %}
+                <legend>Señalización vertical y horizontal</legend>
+                <p  class="texto-justificado"> {{svh[i]}}  </p>
+            {% endif %}    
+            <br/>
+
+            {#Desarrollo y posibles causas#}
+            {% if dpc[i] %}
+                <legend>Dinámica y posibles causas</legend>
+                <p  class="texto-justificado"> {{dpc[i]}}  </p>
+            {% endif %}
+        </div>
+         {#Anclaje para volver arriba#}
+         <div class=""><ul class="pager"><li><a href="{{path('croquis')}}">Atras</a></li><li><a href="#selector_bloque">Volver arriba</a></li></ul></div>
+    {% endfor %}
+
+
+   
+     
+   
+
+    <script type="text/javascript">        
+        
+     
+
+    </script>
+     
+    
+    
+    
+{% endblock %}
+
+    
+    
