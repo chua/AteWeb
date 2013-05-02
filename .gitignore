@@ -1,0 +1,8 @@
+nbproject/*
+cache/*
+logs/*
+utiles/*
+docs/*
+web/index_dev.php
+config/dev.php
+/web/data/
